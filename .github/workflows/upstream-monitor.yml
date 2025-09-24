@@ -1,8 +1,8 @@
 name: Upstream Monitor
 
 on:
-  schedule:
-    - cron: "*/30 * * * *"
+  # schedule:
+  #  - cron: "*/30 * * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -21,5 +21,4 @@ jobs:
       - name: Fetch upstream
         run: |
           git remote add upstream https://github.com/sassoftware/viya4-deployment.git
-          git fetch upstream main --depth=1
-          git diff upstream/main
+          git fetch upstream main --depth=1 --tags
