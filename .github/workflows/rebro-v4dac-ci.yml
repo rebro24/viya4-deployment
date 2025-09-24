@@ -7,24 +7,6 @@ on:
 
   
 jobs:
-  ### Work in Progress to automate process of merging upstream with fork upon new commits or releases ###
-    sync-upstream: 
-      runs-on: ubuntu-latest
-      steps:
-          - name: Checkout Fork
-            uses: actions/checkout@v4
-            with:
-              fetch-depth: 0 #Fetch all history
-          
-          - name: Fetch upstream main branch
-            run: |
-              git remote add upstream https://github.com/sassoftware/viya4-deployment.git
-              git fetch upstream main --depth=1 --no-tags --prune 
-
-          - name: Fetch fork origin branch
-            run: |
-              git remote add upstream https://github.com/rebro24/viya4-deployment.git
-              git fetch origin main --depth=1 --no-tags --prune 
     docker:
         runs-on: ubuntu-latest
         steps:
