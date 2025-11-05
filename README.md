@@ -61,8 +61,8 @@ This project contains Ansible code that creates a baseline cluster in an existin
 - Manage SAS Viya Platform Deployments
   - Organize and persist configuration for any number of SAS Viya platform deployments across namespaces, clusters, or cloud providers.
 
-- SAS Viya with SingleStore Deployment
-  - SingleStore is a cloud-native database designed for data-intensive applications. See the [SAS Viya with SingleStore Documentation](./docs/user/SingleStore.md) for details.
+- SAS SpeedyStore Deployment
+  - SingleStore is a cloud-native database designed for data-intensive applications. See the [SAS SpeedyStore Documentation](./docs/user/SingleStore.md) for details.
 
 ## Prerequisites
 
@@ -189,7 +189,9 @@ The following information is parsed from the integration:
 
 ### Customize Deployment Overlays
 
-The Ansible playbook in viya4-deployment fully manages the kustomization.yaml file. Users can make changes by adding custom overlays into subfolders under the `/site-config` folder. If this is the first time that you are running the playbook and plan to add customizations, create the following folder structure:
+The Ansible playbook in viya4-deployment fully manages the kustomization.yaml file. Users can make changes by adding custom overlays into subfolders under the `/site-config` folder. If this is the first time that you are running the playbook and plan to add customizations, create the following folder structure:  
+
+**Note:** Set `DEPLOY: false` in the ansible-vars.yaml file and run playbook with --tags "baseline,viya,install" to have Ansible create the folder structure.  
 
 ```bash
 <base_dir>            <- parent directory
